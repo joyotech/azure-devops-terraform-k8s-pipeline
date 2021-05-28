@@ -12,7 +12,7 @@ steps:
   inputs:
     secureFile: 'azure_rsa.pub'
 
-- task: TerraformCLI@0
+- task: TerraformTaskV2@2
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
@@ -24,7 +24,7 @@ steps:
     backendAzureRmStorageAccountName: 'storageacctnamexm1'
     backendAzureRmContainerName: 'storageaccntcon'
     backendAzureRmKey: 'k8.tfstate'
-- task: TerraformCLI@0
+- task: TerraformTaskV2@2
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
